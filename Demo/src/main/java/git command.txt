@@ -1,0 +1,253 @@
+GIT
+-----
+
+i) GIT is Distibuted Version Control System 
+
+ii) In Git There no concept Of Server 
+
+iii) In Git Every thing as WorkSpace 
+
+iv) Every Work SPace will Have Repository 
+
+In EVery Local Work Space will have repository so first we will perform operation on it then we will move it central Work Space 
+
+Central Work Space will used to Store and share the information to other developer or user 
+
+on Central Work Space we can't perform any operatiosn like add /delete /update it only for store and share information 
+
+it maintain all commit Id mean who was commited the file and date ..so that we can track and compare the file 
+
+
+Flow to Commit The FIles
+
+
+Local Working --- Stagging Area --- Commit 
+
+    
+In Stagging Area Snapshort will create for every commit 
+
+
+
+to Config User Name and  Email 
+-------------------------------
+
+
+git config --global user.email="sreenathreddy@gmail.com"
+
+git config --global user.name="sreenathreddy"
+
+
+to see the list config 
+
+git config --list 
+
+
+above information will be usefull while creating the snopshort with this name and email id snopshort will be create so that other person can know who commited the file ..................
+
+we have Types Work Space 
+------------------------
+
+Bare Work Space 
+-----------------------
+Bare Work Space central Work Space 
+
+
+Non Bare Work Space
+
+-------------------------
+
+User or Local Work Space where we can perform all operations
+ 
+
+in which user can perform add /update / delete operation 
+
+
+
+In Every Local Work Space one repository will be created 
+
+this is the main advantage of the GIT 
+
+First we will perform All Operation in Local 
+
+Local Work Space ---> Stagged --- Commit 
+
+Stagging Means create one snapshort with Following Details 
+
+Author Name 
+
+Date ...etc 
+
+Once we commit the file 
+
+with Above information Commit is created 
+
+GIt Commands
+-----------------
+
+Configure Git User 
+
+git config --gloabl user.email ""
+
+git config --gloabl user.name ""
+
+
+git config --global push.default ""  for to move code origine of Central Repository
+
+to see the list of Configguration 
+
+git config --list 
+
+-------------------------
+
+once above Configuration Done we have create Directory 
+
+mkdir cetralrepo.git 
+
+we have to make this as bare repository mean 
+
+git init --bare 
+
+
+once this done then central work Space ready 
+
+once this we can create local copy using below command 
+
+git clone <remote>or<Central>   <WorkSpaceAName>
+
+git add . (.) mean all file of Current Directory to Stagged 
+
+git commit -m "<some message related to Commit>"
+
+
+once this done it will store the file in Local Git Repository 
+
+---------------
+
+to Move from Local to Remote or Central Repository we have to use below command 
+
+git push
+
+-------------------------------
+
+
+git status to know the status of the file 
+
+
+git Log 
+------------------
+
+git log to see the commit Id 
+
+git log -<number> see the line number 
+
+ex: git log -3 it will fetch first three commit id details 
+
+git log --oneline .. it will fetch first commit id
+
+to search commit id with name 
+
+git log --grep "<commit name >" 
+
+
+------------------------------------------
+
+
+Git Brach 
+--------------
+
+Git brach is usefull when we have multiple release or feature instead of creating new repository every time with same content 
+
+it just enough create brach work on the new brach to add features and move it central repository 
+
+
+to see the branches 
+
+git brach  show the list of branches
+
+create new brach 
+
+we have to go first mater from that location  we need to create new brach before create first we need to pull request from central 
+
+git brach <branchName> 
+
+git brach relase/11.2
+
+to swicth brach 
+
+git checkout release/11.2
+
+one get the code 
+
+git add .
+
+git commit -m 
+
+git push 
+
+git push -u <branch-Name>  to push new brach to remote 
+
+all changes will go to this brach of the repository but thease changes will not available to master brach unless we merge the brach 
+
+
+to merge the both braches
+
+git merge source destination 
+
+git merge release/11.2  master 
+
+then all changes of release/11.2 files will be available to master 
+
+git push 
+
+all changes will move to master brach 
+
+
+---------------
+
+
+git pull & push 
+-------------------
+
+before pushing the code from local repository to remote we need to get updated file 
+
+if any conflicts are there then we need resolve and commit the files then push 
+
+git push it will move current branch file  committed files	
+
+git push -u <branch> complete brach files 
+
+git push -u --all it will push current work space file and branch 
+
+
+
+
+
+Ignore the file while committing 
+
+
+first we have create .gitignore file in current brach 
+
+then need add 
+
+*.class
+*.txt
+*.classpath
+*.target
+
+---------------
+GIT Reset 
+-----------
+
+before commiting the code if we want reset the file changes then we need to use the below command 
+
+git add .  move the file from working directory to stagging area 
+
+git reset 
+
+git reset --soft
+
+git reset --mixed
+
+git reset --hard  it will delete three place and head will point to previous commit id 
+
+-------------------------------- 
